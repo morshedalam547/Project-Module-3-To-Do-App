@@ -18,18 +18,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         saveTasks($tasks);
         header('Location: task.php');
         exit;
-    } elseif (isset($_POST['delete'])) {
-        unset($tasks[$_POST['delete']]);
-        $tasks = array_values($tasks);
-        saveTasks($tasks);
-        header('Location: task.php');
-        exit;
-    } elseif (isset($_POST['toggle'])) {
-        $tasks[$_POST['toggle']]['done'] = !$tasks[$_POST['toggle']]['done'];
-        saveTasks($tasks);
-        header('Location: task.php');
-        exit;
-    }
+    } 
+    
+
+
 }
 
 ?>
@@ -55,7 +47,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <h1 class="text-center">To-Do App</h1>
 
             <!-- Add Task Form -->
-            <form  method="POST"  class="mb-4">
+            <form  method="POST"   class="mb-4">
                 <div class="row mb-3">
                     <div class="col-md-9">
                         <input type="text" name="task" class="form-control" placeholder="Enter a new task" required>
@@ -74,7 +66,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <?php else: ?>
                     <?php foreach ($tasks as $index => $task): ?>
                         <li class="task-item">
-                            <form  method="POST" style="flex-grow: 1;">
+                            <form action ="delete.php" method="POST"  style="flex-grow: 1;">
                                 <input type="hidden" name="toggle" value="<?= $index ?>">
                                 <button type="submit" class="btn btn-link w-100 text-start" style="border: none; background: none;">
                                     <span class="task <?= $task['done'] ? 'task-done' : '' ?>">
@@ -83,7 +75,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                 </button>
                             </form>
 
-                            <form  method="POST">
+                            <form action ="delete.php" method="POST" enctype="multipart/form-data">
                                 <input type="hidden" name="delete" value="<?= $index ?>">
                                 <button type="submit" class="btn btn-outline-danger ms-2">Delete</button>
                             </form>
