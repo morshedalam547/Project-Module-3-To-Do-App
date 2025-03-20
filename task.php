@@ -47,37 +47,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 
-    <style>
-        /* body {
-            margin-top: 20px;
-        }
-        .task-card {
-            border: 1px solid green;
-            padding: 20px;
-            border-radius: 5px;
-            background: #fff;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        }
-        .task {
-            color: #888;
-        }
-        .task-done {
-            text-decoration: line-through;
-            color: #888;
-        }
-        .task-item {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin-bottom: 10px;
-        }
-        ul {
-            padding-left: 20px;
-        }
-        button {
-            cursor: pointer;
-        } */
-    </style>
+
 </head>
 <body>
     <div class="container">
