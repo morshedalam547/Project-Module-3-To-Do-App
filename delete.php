@@ -8,6 +8,6 @@ include "function.php";
         unset($tasks[$_POST['delete']]);
         $tasks = array_values($tasks);
         saveTasks($tasks);
-        header('Location: index.php');
+        header('Location: task.php');
         exit;
     }

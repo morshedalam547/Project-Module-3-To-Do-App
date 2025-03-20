@@ -14,7 +14,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         ];
 
         saveTasks($tasks);
-        header('Location: index.php');
+        header('Location: task.php');
         exit;
       } 
 }
