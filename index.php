@@ -21,8 +21,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 ?>
 
-<!-- UI -->
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -39,16 +37,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <h1 class="text-center">To-Do App</h1>
 
             <!-- Add Task Form -->
-            <form  method="POST"   class="mb-4">
-                <div class="row mb-3">
-                    <div class="col-md-9">
-                        <input type="text" name="task" class="form-control" placeholder="Enter a new task" required>
-                    </div>
-                    <div class="col-md-3">
-                        <button type="submit" class="btn btn-primary w-100">Add Task</button>
-                    </div>
-                </div>
-            </form>
+            <form  method="POST" class="d-flex justify-content-center mb-4">
+            <input type="text" name="task" class="form-control w-50" placeholder="Add a new task" required>
+            <button type="submit" class="btn btn-primary ms-2">Add Task</button>
+        </form>
 
             <!-- Task List -->
             <h2>Task List</h2>
@@ -61,7 +53,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                             <form action ="toggle.php" method="POST"  style="flex-grow: 1;">
                                 <input type="hidden" name="toggle" value="<?= $index ?>">
                                 <button type="submit" class="btn btn-link w-100 text-start" style="border: none; background: none;">
-                                    <span class="task <?= $task['done'] ? 'task-done' : '' ?>">
+                                    <span class="task <?= $task['done'] ? 'task-done': '' ?>">
                                         <?= $task['task'] ?>
                                     </span>
                                 </button>
@@ -69,7 +61,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
                             <form action ="delete.php" method="POST" enctype="multipart/form-data">
                                 <input type="hidden" name="delete" value="<?= $index ?>">
-                                <button type="submit" class="btn btn-outline-danger ms-2">Delete</button>
+                                <button type="submit" class="btn btn-sm btn-danger ms-2">Delete</button>
                             </form>
                         </li>
                     <?php endforeach; ?>
