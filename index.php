@@ -6,8 +6,6 @@ define("TASKS_FILE", "tasks.json");
 include "function.php";
 
 
-
-
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (isset($_POST['task']) && !empty(trim($_POST['task']))) {
         $tasks[] = [
@@ -18,15 +16,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         saveTasks($tasks);
         header('Location: index.php');
         exit;
-    } 
-    
-
-
+      } 
 }
 
 ?>
-
-
 
 <!-- UI -->
 
@@ -38,7 +31,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <title>To-Do App</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-
 
 </head>
 <body>
@@ -66,7 +58,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <?php else: ?>
                     <?php foreach ($tasks as $index => $task): ?>
                         <li class="task-item">
-                            <form action ="delete.php" method="POST"  style="flex-grow: 1;">
+                            <form action ="toggle.php" method="POST"  style="flex-grow: 1;">
                                 <input type="hidden" name="toggle" value="<?= $index ?>">
                                 <button type="submit" class="btn btn-link w-100 text-start" style="border: none; background: none;">
                                     <span class="task <?= $task['done'] ? 'task-done' : '' ?>">
